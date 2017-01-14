@@ -52,7 +52,20 @@ public class SmartBookingLogin {
 		initialize();
 		
 	}
-	
+	public String loginData(String email, String pass){
+		   String result1 = "0";
+		   if (email.equals(txtEmail.getText())){//"adasd"
+				if (pass.equals(String.valueOf(passwordF.getPassword()))){//"123"
+					result1 = "1";
+					
+				}
+			}
+			else{
+				result1 = "0";
+			}
+			
+			return result1;
+			}
 	
 
 	/**
@@ -92,42 +105,38 @@ public class SmartBookingLogin {
 				Connection conn = null;
 				Statement stmt = null;
 				ResultSet rs = null;
-				String result = "";
+				String result = "0";
 			try
 			{
 				// Main code here
-				Class.forName("com.mysql.jdbc.Driver").newInstance();
-				String connectionUrl = "jdbc:mysql://127.0.0.1:3306/smartHotel";
-				String connectionUser = "root";
-				String connectionPassword = "test123";
+				Class.forName("com.mysql.jdbc.Driver").newInstance();//NOPMD by SKardasis on 10/01/2017 3:46 PM
+				String connectionUrl = "jdbc:mysql://127.0.0.1:3306/smartHotel"; //NOPMD by SKardasis on 10/01/2017 3:46 PM
+				String connectionUser = "root";//NOPMD by SKardasis on 10/01/2017 3:46 PM
+				String connectionPassword = "test123";//NOPMD by SKardasis on 10/01/2017 3:46 PM
 				conn = DriverManager.getConnection(connectionUrl, connectionUser,
 				connectionPassword);
-				stmt = conn.createStatement();
-				rs = stmt.executeQuery("SELECT * FROM clients");
+				stmt = conn.createStatement();//NOPMD by SKardasis on 10/01/2017 3:46 PM
+				rs = stmt.executeQuery("SELECT * FROM clients");//NOPMD by SKardasis on 10/01/2017 3:46 PM
 				//String result = "";
-				while (rs.next())
+				while (rs.next())//NOPMD by SKardasis on 10/01/2017 3:46 PM
 					{
 					
-				    String mail = rs.getString("email");
+				    String mail = rs.getString("email");//NOPMD by SKardasis on 10/01/2017 3:47 PM
 					
-					String password = rs.getString("password");
+					String password = rs.getString("password");//NOPMD by SKardasis on 10/01/2017 3:47 PM
 					
-					if (mail.equals(txtEmail.getText())){
-						if (password.equals(String.valueOf(passwordF.getPassword()))){
-							result = "Success!";
-							
-							break;
-						}
+					result = loginData(mail, password);
+					if (result.equals("1")){
+						break;
 					}
-					else{
-						result = "Looser";
+					
 					}
-					}
-				    if (result == "Success!"){
+				    if (result.equals("1")){
 				    	SmartBookingClient cl = new SmartBookingClient();
 				    	cl.Client();
 				    	frame.setVisible(false);
 				    }
+				    
 				    
 				    
 				   //this.dispose();
@@ -154,12 +163,19 @@ public class SmartBookingLogin {
 		lblWelcomeToSmart.setBounds(79, 12, 313, 35);
 		frame.getContentPane().add(lblWelcomeToSmart);
 		
+		JLabel lblForgotYourPassword = new JLabel("Forgot your Password?");
+		lblForgotYourPassword.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lblForgotYourPassword.setForeground(new Color(0, 204, 204));
+		lblForgotYourPassword.setFont(new Font("Arial", Font.BOLD, 12));
+		lblForgotYourPassword.setBounds(113, 278, 164, 15);
+		frame.getContentPane().add(lblForgotYourPassword);
+		
 		JLabel lblRegister = new JLabel("Register");
 		lblRegister.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblRegister.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				SmartBookingRegister re = new SmartBookingRegister();
+				SmartBookingRegister re = new SmartBookingRegister();//NOPMD 
 		    	re.Register();
 			}
 		});

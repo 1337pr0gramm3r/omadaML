@@ -19,7 +19,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
-public class SMEmployerEdit {
+public class SMEmployeeEdit {
 
 	private JFrame frame;
 	private JTextField txtRoom;
@@ -64,7 +64,7 @@ public class SMEmployerEdit {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SMEmployerEdit window = new SMEmployerEdit();
+					SMEmployeeEdit window = new SMEmployeeEdit();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -76,7 +76,7 @@ public class SMEmployerEdit {
 	/**
 	 * Create the application.
 	 */
-	public SMEmployerEdit() {
+	public SMEmployeeEdit() {
 		initialize();
 	}
 

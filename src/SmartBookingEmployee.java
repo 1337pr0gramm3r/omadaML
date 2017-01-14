@@ -24,7 +24,7 @@ import java.awt.Panel;
 
 import javax.swing.table.DefaultTableModel;
 
-public class SmartBookingEmployer {
+public class SmartBookingEmployee {
 
 	private JFrame frame;
 	private JTextField txtArrival;
@@ -39,7 +39,7 @@ public class SmartBookingEmployer {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SmartBookingEmployer window = new SmartBookingEmployer();
+					SmartBookingEmployee window = new SmartBookingEmployee();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,7 +51,7 @@ public class SmartBookingEmployer {
 	/**
 	 * Create the application.
 	 */
-	public SmartBookingEmployer() {
+	public SmartBookingEmployee() {
 		initialize();
 	}
 	public java.sql.Date convertJavaDateToSqlDate(java.util.Date date) {
@@ -205,7 +205,7 @@ public class SmartBookingEmployer {
 		JButton btnEditRooms = new JButton("Edit Rooms");
 		btnEditRooms.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				SMEmployerEdit.editRooms();
+				SMEmployeeEdit.editRooms();
 			}
 		});
 		btnEditRooms.setBounds(495, 185, 138, 46);
