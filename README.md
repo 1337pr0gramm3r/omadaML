@@ -1,2 +1,2 @@
-omadaML
+Java App For School
 =======
